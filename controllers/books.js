@@ -8,6 +8,7 @@ const getAll = async (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(books);
   } catch (err) {
+    console.log(err)
     res.status(500).json({ message: 'could not fetch books'});
   }
 };
