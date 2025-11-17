@@ -58,7 +58,7 @@
       },
       "post": {
         "tags": [
-          "books"
+          "new book"
         ],
         "description": "",
         "parameters": [
@@ -106,7 +106,7 @@
     "/books/{id}": {
       "get": {
         "tags": [
-          "books"
+          "book by id"
         ],
         "description": "",
         "produces": [
@@ -134,7 +134,7 @@
       },
       "put": {
         "tags": [
-          "books"
+          "update books"
         ],
         "description": "",
         "parameters": [
@@ -186,7 +186,7 @@
       },
       "delete": {
         "tags": [
-          "books"
+          "delete books"
         ],
         "description": "",
         "parameters": [
@@ -210,7 +210,7 @@
     "/members/": {
       "get": {
         "tags": [
-          "members"
+          "all members"
         ],
         "description": "",
         "produces": [
@@ -227,7 +227,7 @@
       },
       "post": {
         "tags": [
-          "members"
+          "new members"
         ],
         "description": "",
         "parameters": [
@@ -269,7 +269,7 @@
     "/members/{id}": {
       "get": {
         "tags": [
-          "members"
+          "members id"
         ],
         "description": "",
         "produces": [
@@ -297,7 +297,7 @@
       },
       "put": {
         "tags": [
-          "members"
+          "member updates"
         ],
         "description": "",
         "parameters": [
@@ -343,7 +343,7 @@
       },
       "delete": {
         "tags": [
-          "members"
+          "delete members"
         ],
         "description": "",
         "parameters": [
