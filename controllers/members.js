@@ -29,13 +29,11 @@ const getSingle = async (req, res) => {
 const createMembers = async (req, res) => {
   // #swagger.tags=['members']
   const member = {
-    title: req.body.title,
-    author: req.body.author,
-    genre: req.body.genre,
-    publisher: req.body.publisher,
-    yearPublished: req.body.yearPublished,
-    pageCount: req.body.pageCount,
-    edition: req.body.edition,
+    name: req.body.name,
+    address: req.body.address,
+    dateOfBirth: req.body.dateOfBirth,
+    favoriteGenre: req.body.favoriteGenre,
+    phoneNumber: req.body.phoneNumber
   };
   const response = await mongodb.getDatabase().db().collection('members').insertOne(member);
   if (response.acknowledged) {
@@ -49,13 +47,11 @@ const updateMembers = async (req, res) => {
   // #swagger.tags=['members']
   const memberId = new ObjectId(req.params.id);
   const member = {
-    title: req.body.title,
-    author: req.body.author,
-    genre: req.body.genre,
-    publisher: req.body.publisher,
-    yearPublished: req.body.yearPublished,
-    pageCount: req.body.pageCount,
-    edition: req.body.edition,
+    name: req.body.name,
+    address: req.body.address,
+    dateOfBirth: req.body.dateOfBirth,
+    favoriteGenre: req.body.favoriteGenre,
+    phoneNumber: req.body.phoneNumber
   };
   const response = await mongodb
     .getDatabase()
