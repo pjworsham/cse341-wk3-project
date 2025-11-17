@@ -26,7 +26,64 @@ const getSingle = async (req, res) => {
   }
 };
 
+const createMembers = async (req, res) => {
+  // #swagger.tags=['members']
+  const member = {
+    title: req.body.title,
+    author: req.body.author,
+    genre: req.body.genre,
+    publisher: req.body.publisher,
+    yearPublished: req.body.yearPublished,
+    pageCount: req.body.pageCount,
+    edition: req.body.edition,
+  };
+  const response = await mongodb.getDatabase().db().collection('members').insertOne(member);
+  if (response.acknowledged) {
+    res.status(204).send();
+  } else {
+    res.status(500).json(response.error || 'Some error occurred while updating the member');
+  }
+};
+
+const updateMembers = async (req, res) => {
+  // #swagger.tags=['members']
+  const memberId = new ObjectId(req.params.id);
+  const member = {
+    title: req.body.title,
+    author: req.body.author,
+    genre: req.body.genre,
+    publisher: req.body.publisher,
+    yearPublished: req.body.yearPublished,
+    pageCount: req.body.pageCount,
+    edition: req.body.edition,
+  };
+  const response = await mongodb
+    .getDatabase()
+    .db()
+    .collection('members')
+    .replaceOne({ _id: memberId }, member);
+  if (response.modifiedCount > 0) {
+    res.status(204).send();
+  } else {
+    res.status(500).json(response.error || 'Some error occurred while updating the member');
+  }
+};
+
+const deleteMember = async (req, res) => {
+  // #swagger.tags=['members']
+  const memberId = new ObjectId(req.params.id);
+  const response = await mongodb.getDatabase().db().collection('members').deleteOne({ _id: memberId });
+  if (response.deletedCount > 0) {
+    res.status(204).send();
+  } else {
+    res.status(500).json(response.error || 'Some error occurred while updating the member');
+  }
+};
+
 module.exports = {
   getAll,
   getSingle,
+  createMembers,
+  updateMembers,
+  deleteMember
 };
